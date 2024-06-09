@@ -7,7 +7,7 @@ import {
 } from "@mantine/core";
 import { FC, useEffect, useMemo, useState } from "react";
 import { IconPlus, IconTrash } from "@tabler/icons-react";
-import { TAttack, useFormContext } from "../../Main/Main";
+import { TAttack, initialFormValues, useFormContext } from "../../Main/Main";
 import { DataTable, DataTableColumn } from "mantine-datatable";
 
 type TColumn = DataTableColumn<TAttack>;
@@ -20,7 +20,9 @@ interface IProps {
 export const Attack: FC<IProps> = ({ formKey, title }) => {
   const { setFieldValue } = useFormContext();
 
-  const [records, setRecords] = useState<TAttack[]>([]);
+  const [records, setRecords] = useState<TAttack[]>(
+    initialFormValues[formKey] || []
+  );
 
   const columns = useMemo<TColumn[]>(() => {
     function changeRecord<Key extends keyof TAttack>(
@@ -44,23 +46,9 @@ export const Attack: FC<IProps> = ({ formKey, title }) => {
 
     const columns: TColumn[] = [
       {
-        accessor: "name",
-        title: "Наименование",
-        width: "30%",
-        render: (record, index) => {
-          const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
-            event
-          ) => {
-            changeRecord(index, "name", event.target.value);
-          };
-
-          return <Input value={record.name} onChange={handleChange} />;
-        },
-      },
-      {
         accessor: "damage",
         title: "Урон",
-        width: "30%",
+        width: "45%",
         render: (record, index) => {
           const handleChange: NumberInputProps["onChange"] = (value) => {
             changeRecord(index, "damage", parseInt(`${value}`, 10));
@@ -72,7 +60,7 @@ export const Attack: FC<IProps> = ({ formKey, title }) => {
       {
         accessor: "minDiceValue",
         title: "Минимальное значение кубика",
-        width: "30%",
+        width: "35%",
         render: (record, index) => {
           const handleChange: NumberInputProps["onChange"] = (value) => {
             changeRecord(index, "minDiceValue", parseInt(`${value}`, 10));
@@ -108,7 +96,6 @@ export const Attack: FC<IProps> = ({ formKey, title }) => {
 
   const addEmptyRow = () => {
     const record: TAttack = {
-      name: "-",
       damage: 1,
       minDiceValue: 1,
     };

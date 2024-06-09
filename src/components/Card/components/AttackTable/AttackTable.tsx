@@ -18,13 +18,11 @@ export const AttackTable: FC<IProps> = ({ title, formKey }) => {
 
       <table className={styles.table}>
         <tr>
-          <th>Наименование</th>
           <th>Урон</th>
           <th>Кубик</th>
         </tr>
-        {values[formKey]?.map(({ name, damage, minDiceValue }) => (
-          <tr key={name}>
-            <td>{name}</td>
+        {values[formKey]?.map(({ damage, minDiceValue }) => (
+          <tr key={damage}>
             <td>{damage}</td>
             <td>{minDiceValue}+</td>
           </tr>

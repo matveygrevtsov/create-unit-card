@@ -8,7 +8,6 @@ import { EShootDistance } from "../../appConstants";
 import styles from "./styles.module.css";
 
 const attackSchema = z.object({
-  name: z.string().optional(),
   damage: z.number().optional(),
   minDiceValue: z.number().optional(),
 });
@@ -27,7 +26,37 @@ const formSchema = z.object({
 
 export type FormValues = z.infer<typeof formSchema>;
 
-const initialFormValues: FormValues = {};
+export const initialFormValues: FormValues = {
+  name: "Гоблин-лучник",
+  hp: 3,
+  speed: 5,
+  imageSrc: `${process.env.PUBLIC_URL}/example.jpg`,
+  shootDistance: EShootDistance.Medium,
+  fighting: [
+    {
+      damage: 1,
+      minDiceValue: 5,
+    },
+    {
+      damage: 2,
+      minDiceValue: 6,
+    },
+  ],
+  shooting: [
+    {
+      damage: 3,
+      minDiceValue: 4,
+    },
+    {
+      damage: 4,
+      minDiceValue: 5,
+    },
+    {
+      damage: 5,
+      minDiceValue: 6,
+    },
+  ],
+};
 
 export const [FormProvider, useFormContext, useForm] =
   createFormContext<FormValues>();
