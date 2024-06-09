@@ -1,0 +1,7 @@
+.col {
+  height: 100vh;
+  width: 50%;
+  border: 1px solid gray;
+  padding: 16px;
+  overflow: auto;
+}
