@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Input } from "@mantine/core";
+import { Flex } from "@mantine/core";
 import { useFormContext } from "../../../Main/Main";
 
 import styles from "./styles.module.css";
@@ -13,7 +13,9 @@ export const AttackTable: FC<IProps> = ({ title, formKey }) => {
   const { values } = useFormContext();
 
   return (
-    <Input.Wrapper label={title}>
+    <Flex direction="column" rowGap={8}>
+      <span className={styles.title}>{title}</span>
+
       <table className={styles.table}>
         <tr>
           <th>Наименование</th>
@@ -28,6 +30,6 @@ export const AttackTable: FC<IProps> = ({ title, formKey }) => {
           </tr>
         ))}
       </table>
-    </Input.Wrapper>
+    </Flex>
   );
 };
