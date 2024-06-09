@@ -3,6 +3,7 @@ import { useFormContext } from "../../../Main/Main";
 import { Flex } from "@mantine/core";
 import { MainCharacteristics } from "../MainCharacteristics";
 import { AttackTable } from "../AttackTable/AttackTable";
+import { ArtilleryTable } from "../ArtilleryTable/ArtilleryTable";
 
 import styles from "./styles.module.css";
 
@@ -35,6 +36,12 @@ export const Main = forwardRef<HTMLDivElement>((_, ref) => {
 
             {values.shooting?.length !== 0 && (
               <AttackTable title="Дальний бой" formKey="shooting" />
+            )}
+
+            {(values.artilleryRadius !== undefined ||
+              values.artilleryPartialHitDamage !== undefined ||
+              values.artilleryFullHitDamage !== undefined) && (
+              <ArtilleryTable />
             )}
           </Flex>
         </Flex>

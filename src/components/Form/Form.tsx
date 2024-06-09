@@ -5,6 +5,7 @@ import { SpeedInput } from "./components/SpeedInput";
 import { ImageInput } from "./components/ImageInput";
 import { SelectShootDistance } from "./components/SelectShootDistance";
 import { Attack } from "./components/Attack";
+import { Artillery } from "./components/Artillery";
 
 export const Form = () => {
   return (
@@ -14,8 +15,13 @@ export const Form = () => {
       <SpeedInput />
       <ImageInput />
       <SelectShootDistance />
-      <Attack title="Ближний бой" formKey="fighting" />
-      <Attack title="Дальний бой" formKey="shooting" />
+
+      <Flex columnGap={16}>
+        <Attack title="Ближний бой" formKey="fighting" />
+        <Attack title="Дальний бой" formKey="shooting" />
+      </Flex>
+
+      <Artillery />
     </Flex>
   );
 };

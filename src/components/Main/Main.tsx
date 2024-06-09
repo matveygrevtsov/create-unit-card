@@ -22,6 +22,9 @@ const formSchema = z.object({
   shootDistance: z.nativeEnum(EShootDistance).optional(),
   fighting: z.array(attackSchema).optional(),
   shooting: z.array(attackSchema).optional(),
+  artilleryRadius: z.number().optional(),
+  artilleryPartialHitDamage: z.number().optional(),
+  artilleryFullHitDamage: z.number().optional(),
 });
 
 export type FormValues = z.infer<typeof formSchema>;
