@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Flex } from "@mantine/core";
 import { useFormContext } from "../../../Main/Main";
+import { getProbabilityOfSuccessfulDieRoll } from "../../../../utils/getProbabilityOfSuccessfulDieRoll";
 
 import styles from "./styles.module.css";
 
@@ -20,11 +21,17 @@ export const AttackTable: FC<IProps> = ({ title, formKey }) => {
         <tr>
           <th>Урон</th>
           <th>Кубик</th>
+          <th>Вероятность</th>
         </tr>
         {values[formKey]?.map(({ damage, minDiceValue }) => (
           <tr key={damage}>
             <td>{damage}</td>
             <td>{minDiceValue}+</td>
+            <td>
+              {minDiceValue === undefined
+                ? "-"
+                : getProbabilityOfSuccessfulDieRoll(minDiceValue)}
+            </td>
           </tr>
         ))}
       </table>
