@@ -4,6 +4,7 @@ import { createFormContext, zodResolver } from "@mantine/form";
 import { Card } from "../Card/Card";
 import { Form } from "../Form/Form";
 import { EShootDistance } from "../../appConstants";
+import { getWindowBasePath } from "../../utils/getWindowBasePath";
 
 import styles from "./styles.module.css";
 
@@ -33,7 +34,7 @@ export const initialFormValues: FormValues = {
   name: "Гоблин-лучник",
   hp: 3,
   speed: 5,
-  imageSrc: `${process.env.PUBLIC_URL}/example.jpg`,
+  imageSrc: `${getWindowBasePath()}/example.jpg`,
   shootDistance: EShootDistance.Medium,
   fighting: [
     {

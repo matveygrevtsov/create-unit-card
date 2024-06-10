@@ -4,6 +4,7 @@ import { Flex } from "@mantine/core";
 import { MainCharacteristics } from "../MainCharacteristics";
 import { AttackTable } from "../AttackTable/AttackTable";
 import { ArtilleryTable } from "../ArtilleryTable/ArtilleryTable";
+import { Avatar } from "../Avatar/Avatar";
 
 import styles from "./styles.module.css";
 
@@ -18,12 +19,7 @@ export const Main = forwardRef<HTMLDivElement>((_, ref) => {
         <Flex columnGap={16}>
           {/* Левая часть */}
           <Flex direction={"column"} rowGap={16}>
-            <div
-              className={styles.image}
-              style={{
-                backgroundImage: `url(${values.imageSrc})`,
-              }}
-            />
+            <Avatar />
 
             <MainCharacteristics />
           </Flex>
