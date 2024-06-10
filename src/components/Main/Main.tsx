@@ -1,34 +1,12 @@
 import { Flex } from "@mantine/core";
-import { z } from "zod";
 import { createFormContext, zodResolver } from "@mantine/form";
 import { Card } from "../Card/Card";
 import { Form } from "../Form/Form";
-import { EShootDistance } from "../../appConstants";
+import { EShootDistance, formSchema } from "../../appConstants";
 import { getWindowBasePath } from "../../utils/getWindowBasePath";
+import { FormValues } from "../../types";
 
 import styles from "./styles.module.css";
-
-const attackSchema = z.object({
-  damage: z.number().optional(),
-  minDiceValue: z.number().optional(),
-});
-
-export type TAttack = z.infer<typeof attackSchema>;
-
-const formSchema = z.object({
-  name: z.string().optional(),
-  hp: z.number().optional(),
-  speed: z.number().optional(),
-  imageSrc: z.string().optional(),
-  shootDistance: z.nativeEnum(EShootDistance).optional(),
-  fighting: z.array(attackSchema).optional(),
-  shooting: z.array(attackSchema).optional(),
-  artilleryRadius: z.number().optional(),
-  artilleryPartialHitDamage: z.number().optional(),
-  artilleryFullHitDamage: z.number().optional(),
-});
-
-export type FormValues = z.infer<typeof formSchema>;
 
 export const initialFormValues: FormValues = {
   name: "Гоблин-лучник",

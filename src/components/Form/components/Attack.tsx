@@ -7,8 +7,9 @@ import {
 } from "@mantine/core";
 import { FC, useEffect, useMemo, useState } from "react";
 import { IconPlus, IconTrash } from "@tabler/icons-react";
-import { TAttack, initialFormValues, useFormContext } from "../../Main/Main";
+import { initialFormValues, useFormContext } from "../../Main/Main";
 import { DataTable, DataTableColumn } from "mantine-datatable";
+import { TAttack } from "../../../types";
 
 type TColumn = DataTableColumn<TAttack>;
 

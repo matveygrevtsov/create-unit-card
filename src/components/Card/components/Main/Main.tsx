@@ -5,6 +5,7 @@ import { MainCharacteristics } from "../MainCharacteristics";
 import { AttackTable } from "../AttackTable/AttackTable";
 import { ArtilleryTable } from "../ArtilleryTable/ArtilleryTable";
 import { Avatar } from "../Avatar/Avatar";
+import { Price } from "../Price/Price";
 
 import styles from "./styles.module.css";
 
@@ -14,7 +15,11 @@ export const Main = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <div ref={ref} className={styles.root}>
       <Flex direction={"column"} rowGap={16}>
-        <span className={styles.title}>{values.name || "-"}</span>
+        <Flex columnGap={16} justify="space-between" align="center">
+          <span className={styles.title}>{values.name || "-"}</span>
+
+          <Price />
+        </Flex>
 
         <Flex columnGap={16}>
           {/* Левая часть */}
