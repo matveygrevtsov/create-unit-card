@@ -1,8 +1,26 @@
 .root {
   width: 600px;
   padding: 16px;
+  position: relative;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+}
+
+.container {
+  z-index: 1;
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
   background-image: url("/public/background.jpeg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  opacity: 0.5;
 }

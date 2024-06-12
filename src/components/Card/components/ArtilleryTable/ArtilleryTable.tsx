@@ -8,7 +8,7 @@ export const ArtilleryTable = () => {
 
   return (
     <Flex direction="column" rowGap={8}>
-      <span className={styles.title}>Артиллерия</span>
+      <h2>Артиллерия</h2>
 
       <table className={styles.table}>
         <tr>

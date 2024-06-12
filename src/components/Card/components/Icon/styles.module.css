@@ -1,0 +1,18 @@
+.root {
+  background-image: url("/public/iconBackground.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+}

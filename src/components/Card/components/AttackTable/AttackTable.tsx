@@ -15,7 +15,7 @@ export const AttackTable: FC<IProps> = ({ title, formKey }) => {
 
   return (
     <Flex direction="column" rowGap={8}>
-      <span className={styles.title}>{title}</span>
+      <h2>{title}</h2>
 
       <table className={styles.table}>
         <tr>

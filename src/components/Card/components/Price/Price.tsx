@@ -1,18 +1,16 @@
 import { Flex } from "@mantine/core";
 import { useFormContext } from "../../../Main/Main";
-import { IconCoins } from "@tabler/icons-react";
 import { getPrice } from "../../../../utils/getPrice";
-
-import styles from "./styles.module.css";
+import { Icon } from "../Icon/Icon";
 
 export const Price = () => {
   const { values } = useFormContext();
 
   return (
     <Flex align={"center"} justify={"center"} columnGap={8}>
-      <span className={styles.text}>{getPrice(values)}</span>
+      <h2>{getPrice(values)}</h2>
 
-      <IconCoins color="yellow" />
+      <Icon src="iconCoin.jpg" />
     </Flex>
   );
 };
