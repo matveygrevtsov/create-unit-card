@@ -27,9 +27,9 @@ export const Body = () => {
           <AttackTable title="Дальний бой" formKey="shooting" />
         )}
 
-        {(values.artilleryRadius !== undefined ||
-          values.artilleryPartialHitDamage !== undefined ||
-          values.artilleryFullHitDamage !== undefined) && <ArtilleryTable />}
+        {(values.artilleryRadius ||
+          values.artilleryPartialHitDamage ||
+          values.artilleryFullHitDamage) && <ArtilleryTable />}
       </Flex>
     </Flex>
   );
