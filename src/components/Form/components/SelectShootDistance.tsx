@@ -1,6 +1,6 @@
 import { ComboboxData, Input, Select } from "@mantine/core";
 import { useFormContext } from "../../Main/Main";
-import { EShootDistance } from "../../../appConstants";
+import { EShootDistance } from "../../../types";
 
 const data: ComboboxData = Object.values(EShootDistance);
 

@@ -1,5 +1,4 @@
-import { EShootDistance } from "../appConstants";
-import { FormValues, TAttack } from "../types";
+import { EShootDistance, FormValues, TAttack } from "../types";
 
 export const getPrice = ({
   hp,

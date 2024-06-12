@@ -7,9 +7,10 @@ import {
 } from "@mantine/core";
 import { FC, useEffect, useMemo, useState } from "react";
 import { IconPlus, IconTrash } from "@tabler/icons-react";
-import { initialFormValues, useFormContext } from "../../Main/Main";
+import { useFormContext } from "../../Main/Main";
 import { DataTable, DataTableColumn } from "mantine-datatable";
 import { TAttack } from "../../../types";
+import { initialFormValues } from "../../../appConstants";
 
 type TColumn = DataTableColumn<TAttack>;
 
@@ -93,7 +94,7 @@ export const Attack: FC<IProps> = ({ formKey, title }) => {
     ];
 
     return columns;
-  }, [formKey]);
+  }, []);
 
   const addEmptyRow = () => {
     const record: TAttack = {
@@ -104,7 +105,10 @@ export const Attack: FC<IProps> = ({ formKey, title }) => {
     setRecords((prevRecords) => [...prevRecords, record]);
   };
 
-  useEffect(() => setFieldValue(formKey, records), [records, setFieldValue]);
+  useEffect(
+    () => setFieldValue(formKey, records),
+    [records, setFieldValue, formKey]
+  );
 
   return (
     <Input.Wrapper label={title}>
