@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { URL } from "../../../../appConstants";
 
 import styles from "./styles.module.css";
 
@@ -15,7 +14,11 @@ interface IProps {
 export const Icon: FC<IProps> = ({ src }) => {
   return (
     <div className={styles.root}>
-      <img alt={src} src={`${URL}/${src}`} className={styles.image} />
+      <img
+        alt={src}
+        src={`${process.env.PUBLIC_URL}/${src}`}
+        className={styles.image}
+      />
     </div>
   );
 };

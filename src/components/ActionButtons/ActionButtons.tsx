@@ -8,7 +8,7 @@ import {
 } from "react-component-export-image";
 import { useFormContext } from "../Main/Main";
 import { notifications } from "@mantine/notifications";
-import { cardId } from "../../appConstants";
+import { baseUrl, cardId } from "../../appConstants";
 
 enum EExtension {
   JPEG = "JPEG",
@@ -50,8 +50,11 @@ export const ActionButtons = () => {
 
   const handleImageBackgroundCutClick = () => {
     setImageBackgroundCutInProgress(true);
+    const imageSrc = values.imageSrc!;
 
-    removeBackground(values.imageSrc!)
+    const src = imageSrc.includes("http") ? imageSrc : `${baseUrl}${imageSrc}`;
+
+    removeBackground(src)
       .then(
         (blob: Blob) => {
           const src = URL.createObjectURL(blob);

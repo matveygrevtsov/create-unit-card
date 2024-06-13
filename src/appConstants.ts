@@ -2,7 +2,7 @@ import { z } from "zod";
 import { EShootDistance, FormValues } from "./types";
 
 // Базовый URL страницы без слеша на конце
-export const URL = (() => {
+export const baseUrl = (() => {
   const { origin } = window.location;
   return origin.endsWith("/") ? origin.slice(0, -1) : origin;
 })();
@@ -31,7 +31,7 @@ export const initialFormValues: FormValues = {
   name: "Гоблин-лучник",
   hp: 3,
   speed: 5,
-  imageSrc: `${URL}/example.png`,
+  imageSrc: `${process.env.PUBLIC_URL}/example.png`,
   shootDistance: EShootDistance.Medium,
   fighting: [
     {

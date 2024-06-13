@@ -1,5 +1,6 @@
 {
   "name": "unit-card-creator",
+  "homepage": "https://matveygrevtsov.github.io/create-unit-card/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
