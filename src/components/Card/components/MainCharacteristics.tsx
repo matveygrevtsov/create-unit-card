@@ -6,7 +6,7 @@ export const MainCharacteristics = () => {
   const { values } = useFormContext();
 
   return (
-    <Flex justify={"space-around"} align={"center"}>
+    <Flex justify="center" align={"center"} columnGap={16}>
       <Flex columnGap={8} align="center">
         <Icon src="iconHealth.jpg" />
 
